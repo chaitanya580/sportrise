@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SportRise — Discover. Train. Rise. | India's First Student Athlete Discovery Platform</title>
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<meta name="theme-color" content="#0A0F14">
+<meta name="description" content="SportRise connects student athletes with certified coaches, verified tournaments, and national scouts. Earn XP, level up, get discovered.">
+<meta property="og:title" content="SportRise — Discover. Train. Rise.">
+<meta property="og:description" content="India's first student athlete discovery platform.">
+<meta property="og:url" content="https://sportrise.in/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   SPORTRISE — FULL REDESIGN  |  Nike / Puma Energy
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  --black:   #0A0F14;
+  --dark:    #0E1620;
+  --card:    #141E2A;
+  --navy:    #0D1B2A;
+  --orange:  #FF4D00;
+  --orange2: #FF6B2B;
+  --gold:    #FFB830;
+  --white:   #FFFFFF;
+  --off:     #F0EDE8;
+  --muted:   #7A8FA6;
+  --line:    rgba(255,255,255,0.08);
+  --radius:  4px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ── UTILITIES ────────────────────────────────────────────── */
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+.js-animate .reveal{opacity:0;transform:translateY(24px)}
+.js-animate .reveal.in{opacity:1;transform:none}
+
+.tag{
+  display:inline-block;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--orange);
+  border:1px solid rgba(255,77,0,.35);
+  padding:5px 14px;border-radius:100px;
+}
+.sec-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:18px;display:block;
+}
+.sec-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(40px,6vw,72px);
+  font-weight:900;line-height:.95;
+  text-transform:uppercase;letter-spacing:-.01em;
+}
+.sec-sub{
+  font-size:17px;line-height:1.65;
+  color:var(--muted);max-width:520px;
+  margin-top:18px;
+}
+.pad{padding:100px 24px}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:68px;
+  background:rgba(10,15,20,.85);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:26px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.nav-logo span{color:var(--orange)}
+.nav-logo img{height:32px;width:auto}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+  font-size:13px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);transition:color .2s;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{
+  background:var(--orange);color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:10px 24px;border-radius:var(--radius);
+  transition:opacity .2s;white-space:nowrap;
+}
+.nav-cta:hover{opacity:.85}
+.nav-ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-ham span{width:24px;height:2px;background:var(--white);display:block;transition:.3s}
+.mob-menu{
+  display:none;position:fixed;top:68px;left:0;right:0;z-index:998;
+  background:rgba(10,15,20,.97);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  padding:24px 32px 32px;
+}
+.mob-menu.open{display:block}
+.mob-menu a{
+  display:block;padding:14px 0;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);transition:color .2s;
+}
+.mob-menu a:last-child{border:none;color:var(--orange);margin-top:8px}
+.mob-menu a:hover{color:var(--white)}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+  filter:brightness(.45) contrast(1.1);
+  transform:scale(1.02);
+  transition:transform 8s ease;
+}
+.hero-img.loaded{transform:scale(1)}
+.hero-grain{
+  position:absolute;inset:0;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px;pointer-events:none;
+}
+.hero-gradient{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(10,15,20,.1) 0%,
+    rgba(10,15,20,.0) 30%,
+    rgba(10,15,20,.5) 60%,
+    rgba(10,15,20,.97) 100%
+  );
+}
+.hero-stripe{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  background:var(--orange);
+}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 32px 64px;max-width:1200px;margin:0 auto;width:100%;
+}
+.hero-tag{margin-bottom:24px}
+.hero-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(64px,10vw,130px);
+  font-weight:900;line-height:.88;
+  text-transform:uppercase;letter-spacing:-.02em;
+  color:var(--white);
+}
+.hero-tagline em{
+  font-style:italic;color:var(--orange);
+  display:block;
+}
+.hero-sub{
+  font-size:18px;line-height:1.6;color:rgba(255,255,255,.7);
+  max-width:500px;margin-top:20px;
+}
+.hero-cta-row{
+  display:flex;align-items:center;
+  gap:20px;flex-wrap:wrap;
+  margin-top:36px;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--orange);color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:16px 32px;border-radius:var(--radius);
+  transition:transform .15s,opacity .15s;
+  white-space:nowrap;
+}
+.btn-primary:hover{transform:translateY(-2px);opacity:.9}
+.btn-primary svg{width:18px;height:18px;flex-shrink:0}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,.7);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:16px 24px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:var(--radius);
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;
+}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,.5)}
+.hero-social-proof{
+  display:flex;align-items:center;gap:14px;
+  font-size:14px;color:rgba(255,255,255,.5);
+}
+.hero-avatars{display:flex}
+.hero-avatars span{
+  width:32px;height:32px;border-radius:50%;
+  border:2px solid var(--black);
+  background:var(--orange);
+  margin-left:-8px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--white);
+}
+.hero-avatars span:first-child{margin-left:0}
+.hero-scroll{
+  position:absolute;bottom:28px;right:32px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+.hero-scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.35),transparent);
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ── TICKER ───────────────────────────────────────────────── */
+.ticker{
+  background:var(--orange);
+  padding:12px 0;overflow:hidden;
+  border-top:none;border-bottom:none;
+}
+.ticker-track{
+  display:flex;gap:0;
+  white-space:nowrap;
+  animation:tickerAnim 28s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tickerAnim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:16px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(0,0,0,.85);
+  padding:0 32px;
+  border-right:2px solid rgba(0,0,0,.12);
+}
+.ticker-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(0,0,0,.4);flex-shrink:0;
+}
+
+/* ── STATS BAR ────────────────────────────────────────────── */
+.stats-bar{
+  background:var(--dark);
+  border-bottom:1px solid var(--line);
+}
+.stats-bar .container{
+  display:flex;
+  border-left:1px solid var(--line);
+}
+.stat-item{
+  flex:1;padding:36px 24px;
+  border-right:1px solid var(--line);
+  text-align:center;
+}
+.stat-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,4vw,52px);
+  font-weight:900;color:var(--white);
+  line-height:1;letter-spacing:-.02em;
+}
+.stat-num span{color:var(--orange)}
+.stat-label{
+  font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-top:6px;
+}
+
+/* ── PROBLEM ──────────────────────────────────────────────── */
+.problem{background:var(--black);padding:100px 0}
+.problem-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;margin-top:64px;
+  border:1px solid var(--line);
+}
+.problem-img{
+  position:relative;overflow:hidden;
+}
+.problem-img img{
+  width:100%;height:100%;min-height:480px;
+  object-fit:cover;filter:brightness(.6) grayscale(.3);
+  transition:transform .6s ease,filter .6s;
+}
+.problem-img:hover img{transform:scale(1.04);filter:brightness(.7) grayscale(.1)}
+.problem-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,77,0,.25),transparent);
+}
+.problem-content{
+  padding:56px 48px;
+  border-left:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.problem-list{
+  list-style:none;margin-top:32px;
+  display:flex;flex-direction:column;gap:0;
+}
+.problem-list li{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.problem-list li:last-child{border:none;padding-bottom:0}
+.prob-icon{
+  width:40px;height:40px;flex-shrink:0;
+  background:rgba(255,77,0,.1);
+  border:1px solid rgba(255,77,0,.25);
+  border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-top:2px;
+}
+.prob-text h4{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:17px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:var(--white);
+}
+.prob-text p{
+  font-size:14px;color:var(--muted);
+  margin-top:4px;line-height:1.55;
+}
+
+/* ── SOLUTION ─────────────────────────────────────────────── */
+.solution{
+  background:var(--dark);
+  padding:100px 0;
+}
+.sol-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:2px;margin-top:64px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.sol-card{
+  background:var(--dark);
+  padding:40px 36px;
+  position:relative;overflow:hidden;
+  transition:background .3s;
+  cursor:default;
+}
+.sol-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:var(--orange);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.sol-card:hover{background:#1a2535}
+.sol-card:hover::before{transform:scaleX(1)}
+.sol-card-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:72px;font-weight:900;
+  color:rgba(255,255,255,.04);
+  position:absolute;top:16px;right:20px;
+  line-height:1;letter-spacing:-.04em;
+  user-select:none;
+}
+.sol-card-icon{
+  width:52px;height:52px;
+  background:rgba(255,77,0,.12);
+  border:1px solid rgba(255,77,0,.3);
+  border-radius:var(--radius);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:24px;
+}
+.sol-card h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.sol-card p{
+  font-size:15px;color:var(--muted);
+  margin-top:10px;line-height:1.6;
+}
+
+/* ── PHOTO STRIP ──────────────────────────────────────────── */
+.photo-strip{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  height:520px;gap:2px;
+  background:var(--line);
+  overflow:hidden;
+}
+.photo-strip-item{
+  overflow:hidden;position:relative;
+}
+.photo-strip-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  filter:brightness(.55) saturate(1.1);
+  transition:transform .6s ease,filter .5s;
+}
+.photo-strip-item:hover img{
+  transform:scale(1.06);filter:brightness(.7) saturate(1.2);
+}
+.photo-strip-item .label{
+  position:absolute;bottom:20px;left:20px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+  background:rgba(10,15,20,.6);
+  padding:5px 12px;border-radius:2px;
+  backdrop-filter:blur(4px);
+}
+
+/* ── HOW IT WORKS ─────────────────────────────────────────── */
+.how{
+  background:var(--black);
+  padding:100px 0;
+}
+.how-steps{
+  margin-top:64px;
+  display:flex;gap:0;
+  border:1px solid var(--line);
+}
+.how-step{
+  flex:1;padding:48px 32px;
+  border-right:1px solid var(--line);
+  position:relative;
+}
+.how-step:last-child{border:none}
+.step-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:80px;font-weight:900;
+  color:rgba(255,255,255,.04);
+  line-height:1;letter-spacing:-.04em;
+  margin-bottom:16px;
+}
+.step-icon{
+  width:48px;height:48px;
+  border-radius:var(--radius);
+  background:rgba(255,77,0,.1);
+  border:1px solid rgba(255,77,0,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:20px;
+}
+.how-step h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.how-step p{
+  font-size:14px;color:var(--muted);
+  margin-top:10px;line-height:1.6;
+}
+.how-arrow{
+  position:absolute;top:50%;right:-16px;
+  transform:translateY(-50%);
+  z-index:2;
+  width:30px;height:30px;
+  background:var(--orange);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--white);
+}
+
+/* ── XP SECTION ───────────────────────────────────────────── */
+.xp-section{
+  background:var(--dark);
+  padding:100px 0;overflow:hidden;
+}
+.xp-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.xp-levels{
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:40px;
+}
+.xp-level{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 20px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.02);
+  transition:background .2s,border-color .2s;
+  position:relative;overflow:hidden;
+}
+.xp-level.active{
+  background:rgba(255,77,0,.08);
+  border-color:rgba(255,77,0,.4);
+}
+.xp-level.active::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:3px;background:var(--orange);
+}
+.xp-badge{
+  width:40px;height:40px;flex-shrink:0;
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.xp-info{flex:1}
+.xp-info h4{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+}
+.xp-info span{font-size:12px;color:var(--muted)}
+.xp-bar-wrap{width:80px}
+.xp-bar{
+  height:4px;background:rgba(255,255,255,.1);
+  border-radius:100px;overflow:hidden;
+}
+.xp-bar-fill{
+  height:100%;background:var(--orange);
+  border-radius:100px;
+}
+.xp-visual{
+  position:relative;
+  height:500px;
+  border-radius:var(--radius);overflow:hidden;
+}
+.xp-visual img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.5) saturate(1.2);
+}
+.xp-visual-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(10,15,20,.9) 100%);
+}
+.xp-visual-badge{
+  position:absolute;bottom:28px;left:28px;right:28px;
+  background:rgba(10,15,20,.85);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,184,48,.4);
+  border-radius:var(--radius);
+  padding:20px;
+  display:flex;align-items:center;gap:16px;
+}
+.xp-visual-star{font-size:32px}
+.xp-visual-text h4{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px;font-weight:900;
+  text-transform:uppercase;color:var(--gold);
+}
+.xp-visual-text p{font-size:13px;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* ── SPORT SHOWCASE ───────────────────────────────────────── */
+.showcase{
+  background:var(--black);
+  padding:100px 0;
+}
+.showcase-grid{
+  margin-top:64px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;background:var(--line);
+  border:1px solid var(--line);
+}
+.showcase-item{
+  position:relative;overflow:hidden;
+  height:380px;
+}
+.showcase-item img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.45) saturate(1.1);
+  transition:transform .6s ease,filter .5s;
+}
+.showcase-item:hover img{
+  transform:scale(1.05);filter:brightness(.6) saturate(1.3);
+}
+.showcase-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(10,15,20,.9) 0%,
+    rgba(10,15,20,.2) 50%,
+    transparent 100%
+  );
+}
+.showcase-content{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:32px;
+}
+.showcase-content h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:32px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.02em;
+}
+.showcase-content p{
+  font-size:14px;color:rgba(255,255,255,.55);
+  margin-top:6px;
+}
+.showcase-tag{
+  display:inline-block;
+  background:var(--orange);color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:2px;
+  margin-bottom:10px;
+}
+
+/* ── TESTIMONIAL / QUOTE ──────────────────────────────────── */
+.quote-sec{
+  background:var(--orange);
+  padding:80px 0;overflow:hidden;
+  position:relative;
+}
+.quote-bg-text{
+  position:absolute;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(120px,18vw,220px);
+  font-weight:900;
+  color:rgba(0,0,0,.07);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  text-transform:uppercase;
+  pointer-events:none;
+  user-select:none;
+  line-height:1;
+}
+.quote-inner{
+  position:relative;z-index:2;
+  text-align:center;
+  max-width:900px;margin:0 auto;padding:0 24px;
+}
+.quote-mark{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:80px;font-weight:900;
+  color:rgba(0,0,0,.2);
+  line-height:.5;
+  display:block;margin-bottom:16px;
+}
+.quote-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(28px,5vw,52px);
+  font-weight:800;
+  font-style:italic;
+  text-transform:uppercase;
+  color:rgba(0,0,0,.88);
+  line-height:1.1;
+}
+.quote-attr{
+  margin-top:24px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(0,0,0,.5);
+}
+
+/* ── WAITLIST ─────────────────────────────────────────────── */
+.waitlist{
+  background:var(--dark);
+  padding:100px 0;
+  position:relative;overflow:hidden;
+}
+.waitlist::before{
+  content:'';position:absolute;
+  top:-200px;right:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(255,77,0,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.waitlist-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.waitlist-left .sec-title{color:var(--white)}
+.waitlist-left .sec-sub{color:var(--muted)}
+.waitlist-features{
+  display:flex;flex-direction:column;gap:16px;
+  margin-top:36px;
+}
+.wf-item{
+  display:flex;align-items:center;gap:14px;
+  font-size:15px;color:rgba(255,255,255,.8);
+}
+.wf-item svg{
+  width:18px;height:18px;flex-shrink:0;
+  color:var(--orange);
+}
+.waitlist-form{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--line);
+  padding:40px 36px;
+  border-radius:var(--radius);
+  position:relative;
+}
+.waitlist-form::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:var(--orange);
+}
+.form-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.04em;
+  margin-bottom:6px;
+}
+.form-sub{font-size:14px;color:var(--muted);margin-bottom:28px}
+.form-group{margin-bottom:16px}
+.form-group label{
+  display:block;
+  font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:7px;
+}
+.form-group input,
+.form-group select{
+  width:100%;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);
+  color:var(--white);
+  font-family:'Barlow',sans-serif;
+  font-size:15px;padding:13px 16px;
+  outline:none;
+  transition:border-color .2s;
+  appearance:none;-webkit-appearance:none;
+}
+.form-group input::placeholder{color:rgba(255,255,255,.2)}
+.form-group input:focus,
+.form-group select:focus{
+  border-color:var(--orange);
+  background:rgba(255,77,0,.04);
+}
+.form-group select option{background:#1a2535;color:var(--white)}
+.role-chips{
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.role-chip{
+  padding:9px 18px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);
+  font-size:13px;font-weight:600;
+  color:var(--muted);cursor:pointer;
+  transition:all .2s;
+  background:transparent;
+  white-space:nowrap;
+}
+.role-chip input{display:none}
+.role-chip.checked,
+.role-chip:has(input:checked){
+  background:rgba(255,77,0,.15);
+  border-color:rgba(255,77,0,.5);
+  color:var(--orange);
+}
+.form-submit{
+  width:100%;margin-top:8px;
+  background:var(--orange);color:var(--white);
+  border:none;cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:16px 32px;border-radius:var(--radius);
+  transition:opacity .2s,transform .15s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.form-submit:hover{opacity:.88;transform:translateY(-1px)}
+.wl-success{
+  display:none;text-align:center;padding:32px 0;
+}
+.wl-success h3{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:28px;font-weight:900;
+  text-transform:uppercase;color:var(--gold);
+}
+.wl-success p{color:var(--muted);margin-top:8px;font-size:15px}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+footer{
+  background:var(--black);
+  border-top:1px solid var(--line);
+  padding:64px 0 32px;
+}
+.footer-top{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--line);
+  flex-wrap:wrap;
+}
+.footer-brand{max-width:300px}
+.footer-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:28px;font-weight:900;
+  text-transform:uppercase;letter-spacing:.04em;
+  color:var(--white);
+  display:flex;align-items:center;gap:10px;
+}
+.footer-logo span{color:var(--orange)}
+.footer-tagline{
+  font-size:14px;color:var(--muted);
+  margin-top:12px;line-height:1.6;
+}
+.footer-links h4{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;
+}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{
+  font-size:14px;color:rgba(255,255,255,.55);
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;
+  padding-top:28px;
+}
+.footer-bottom p{font-size:13px;color:var(--muted)}
+.footer-phase{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+.footer-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--orange);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media(max-width:1024px){
+  .sol-grid{grid-template-columns:1fr}
+  .photo-strip{grid-template-columns:1fr 1fr;height:auto}
+  .photo-strip-item{height:240px}
+  .photo-strip-item:first-child{grid-column:1/-1;height:300px}
+  .xp-inner{grid-template-columns:1fr;gap:40px}
+  .xp-visual{height:340px}
+  .waitlist-inner{grid-template-columns:1fr;gap:48px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .hero-content{padding:0 20px 56px}
+  .problem-grid{grid-template-columns:1fr}
+  .problem-img{display:none}
+  .problem-content{border-left:none;border-top:1px solid var(--line);padding:40px 24px}
+  .how-steps{flex-direction:column}
+  .how-step{border-right:none;border-bottom:1px solid var(--line)}
+  .how-step:last-child{border:none}
+  .how-arrow{display:none}
+  .showcase-grid{grid-template-columns:1fr}
+  .stats-bar .container{flex-direction:column;border:none}
+  .stat-item{border-right:none;border-bottom:1px solid var(--line)}
+  .stat-item:last-child{border:none}
+  .waitlist-form{padding:28px 20px}
+  .footer-top{flex-direction:column;gap:32px}
+}
+@media(max-width:480px){
+  .hero-tagline{font-size:clamp(48px,14vw,72px)}
+  .hero-cta-row{flex-direction:column;align-items:flex-start}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .sec-title{font-size:clamp(34px,10vw,52px)}
+  .sol-grid,.showcase-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" onclick="event.preventDefault()" class="nav-logo">
+    <span>Sport</span>Rise
+  </a>
+  <ul class="nav-links">
+    <li><a href="#problem" onclick="event.preventDefault();document.getElementById('problem').scrollIntoView({behavior:'smooth'})">The Problem</a></li>
+    <li><a href="#solution" onclick="event.preventDefault();document.getElementById('solution').scrollIntoView({behavior:'smooth'})">Platform</a></li>
+    <li><a href="#levels" onclick="event.preventDefault();document.getElementById('levels').scrollIntoView({behavior:'smooth'})">XP System</a></li>
+    <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join</a></li>
+  </ul>
+  <a href="#waitlist" class="nav-cta" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join Waitlist</a>
+  <button class="nav-ham" id="hamBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#problem" onclick="document.getElementById('problem').scrollIntoView({behavior:'smooth'});document.getElementById('mobMenu').classList.remove('open')">The Problem</a>
+  <a href="#solution" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'});document.getElementById('mobMenu').classList.remove('open')">Platform</a>
+  <a href="#levels" onclick="document.getElementById('levels').scrollIntoView({behavior:'smooth'});document.getElementById('mobMenu').classList.remove('open')">XP System</a>
+  <a href="#waitlist" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'});document.getElementById('mobMenu').classList.remove('open')">Join Waitlist →</a>
+</div>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-img" id="heroBg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-stripe"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag reveal">
+      <span class="tag">🇮🇳 Launching Hyderabad · Football First · 2026</span>
+    </div>
+
+    <h1 class="hero-tagline reveal">
+      Your Game.<br>
+      <em>Discovered.</em>
+    </h1>
+
+    <p class="hero-sub reveal">
+      India's first platform where student athletes earn XP, level up, and get found by national scouts — all from one place.
+    </p>
+
+    <div class="hero-cta-row reveal">
+      <a href="#waitlist" class="btn-primary" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Join the Waitlist
+      </a>
+      <a href="#solution" class="btn-ghost" onclick="event.preventDefault();document.getElementById('solution').scrollIntoView({behavior:'smooth'})">
+        See how it works
+      </a>
+    </div>
+
+    <div class="hero-social-proof reveal">
+      <div class="hero-avatars">
+        <span>R</span><span>A</span><span>K</span><span>P</span><span>V</span>
+      </div>
+      <span><b id="counter" class="counter">500</b>+ athletes already on the waitlist</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</header>
+
+<!-- ── TICKER ────────────────────────────────────────────────── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="ticker-item"><span class="ticker-dot"></span>Student Athlete Discovery</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Earn XP Every Session</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Level Up to National Prospect</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Verified Coaches Only</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Hyderabad Football 2026</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Discover. Train. Rise.</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>47 Crore Athletes in India</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>sportrise.in</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span class="ticker-dot"></span>Student Athlete Discovery</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Earn XP Every Session</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Level Up to National Prospect</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Verified Coaches Only</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Hyderabad Football 2026</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>Discover. Train. Rise.</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>47 Crore Athletes in India</div>
+    <div class="ticker-item"><span class="ticker-dot"></span>sportrise.in</div>
+  </div>
+</div>
+
+<!-- ── STATS BAR ─────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stat-item reveal">
+      <div class="stat-num">$<span>19</span>B</div>
+      <div class="stat-label">India Sportstech Market</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num"><span>47</span>Cr</div>
+      <div class="stat-label">Active Athletes in India</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num"><span>0.16</span>%</div>
+      <div class="stat-label">Have Digital Records</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num"><span>7</span></div>
+      <div class="stat-label">Levels to National Prospect</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PHOTO STRIP ───────────────────────────────────────────── -->
+<div class="photo-strip" aria-hidden="true">
+  <div class="photo-strip-item">
+    <img src="https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Football action" loading="lazy">
+    <span class="label">Football · Hyderabad</span>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.pexels.com/photos/618612/pexels-photo-618612.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sprint training" loading="lazy">
+    <span class="label">Train</span>
+  </div>
+  <div class="photo-strip-item">
+    <img src="https://images.pexels.com/photos/1884574/pexels-photo-1884574.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tournament trophy" loading="lazy">
+    <span class="label">Compete</span>
+  </div>
+</div>
+
+<!-- ── PROBLEM ───────────────────────────────────────────────── -->
+<section class="problem" id="problem">
+  <div class="container">
+    <span class="sec-label reveal">The Problem</span>
+    <div class="problem-grid">
+      <div class="problem-img reveal">
+        <img src="https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Coaching session" loading="lazy">
+        <div class="problem-img-overlay"></div>
+      </div>
+      <div class="problem-content">
+        <h2 class="sec-title reveal">The System<br>Misses <em style="color:var(--orange);font-style:normal">Talent</em></h2>
+        <ul class="problem-list">
+          <li class="reveal">
+            <div class="prob-icon">🔍</div>
+            <div class="prob-text">
+              <h4>No Verified Coach Directory</h4>
+              <p>Students rely entirely on word of mouth. Quality coaching is a matter of luck, not merit.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="prob-icon">🏆</div>
+            <div class="prob-text">
+              <h4>Achievements Go Unrecorded</h4>
+              <p>A student who wins a local tournament has zero digital proof. Scouts never know they exist.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="prob-icon">📍</div>
+            <div class="prob-text">
+              <h4>Tier 2/3 Talent is Invisible</h4>
+              <p>Scouts physically travel to find players — missing 80% of real talent from smaller cities.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="prob-icon">📊</div>
+            <div class="prob-text">
+              <h4>No Performance Records</h4>
+              <p>47 crore athletes in India. Only 0.16% carry any digital performance record. Zero data for scouts.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOLUTION ──────────────────────────────────────────────── -->
+<section class="solution" id="solution">
+  <div class="container">
+    <span class="sec-label reveal">The Platform</span>
+    <h2 class="sec-title reveal">One App.<br>Every Athlete.</h2>
+    <p class="sec-sub reveal">SportRise unifies coaching, tournaments, XP tracking and national scouting into one platform. Built for India's 47 crore athletes.</p>
+
+    <div class="sol-grid">
+      <div class="sol-card reveal">
+        <div class="sol-card-num">01</div>
+        <div class="sol-card-icon">⚽</div>
+        <h3>Student Athlete</h3>
+        <p>Register, build your performance profile, find certified coaches, compete in verified tournaments, and earn XP with every session.</p>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-card-num">02</div>
+        <div class="sol-card-icon">🎯</div>
+        <h3>Certified Coaches</h3>
+        <p>Get verified, list your services, reach city-wide students, and track performance across every session you conduct.</p>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-card-num">03</div>
+        <div class="sol-card-icon">🏆</div>
+        <h3>Tournament Organizers</h3>
+        <p>Post tournaments, accept digital registrations with one tap, auto-track results, and award XP to every participant automatically.</p>
+      </div>
+      <div class="sol-card reveal">
+        <div class="sol-card-num">04</div>
+        <div class="sol-card-icon">🔎</div>
+        <h3>National Scouts</h3>
+        <p>Search a ranked, verified athlete database — filter by city, sport, level, and age. Find top talent in hours, not weeks of travel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ──────────────────────────────────────────── -->
+<section class="how" id="how">
+  <div class="container">
+    <span class="sec-label reveal">How It Works</span>
+    <h2 class="sec-title reveal">Four Steps.<br>One Journey.</h2>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon">📱</div>
+        <h3>Register</h3>
+        <p>Create your verified athlete profile in under 3 minutes. Name, age, sport, city — your digital identity begins here.</p>
+        <div class="how-arrow">→</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-icon">🎯</div>
+        <h3>Train & Compete</h3>
+        <p>Book sessions with verified coaches. Register for tournaments with one tap. Every action earns XP automatically.</p>
+        <div class="how-arrow">→</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-icon">⚡</div>
+        <h3>Level Up</h3>
+        <p>Watch your XP grow from Rookie to National Prospect across 7 levels. Your performance record builds automatically.</p>
+        <div class="how-arrow">→</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-icon">⭐</div>
+        <h3>Get Discovered</h3>
+        <p>National scouts search the platform daily. When you reach the top, they find you — no contacts, no luck required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── XP SECTION ────────────────────────────────────────────── -->
+<section class="xp-section" id="levels">
+  <div class="container">
+    <div class="xp-inner">
+      <div>
+        <span class="sec-label reveal">XP & Levels</span>
+        <h2 class="sec-title reveal">Rise Through<br>Seven Levels</h2>
+        <p class="sec-sub reveal">Every coaching session, every tournament, every win — it all counts. Your XP is a permanent, verified record of your journey.</p>
+
+        <div class="xp-levels">
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(143,163,184,.12);border:1px solid rgba(143,163,184,.3)">🏅</div><div class="xp-info"><h4>Rookie</h4><span>0 – 100 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:10%;background:#8FA3B8"></div></div></div></div>
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(39,174,96,.12);border:1px solid rgba(39,174,96,.3)">🥈</div><div class="xp-info"><h4>Contender</h4><span>101 – 300 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:25%;background:#27AE60"></div></div></div></div>
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(41,128,185,.12);border:1px solid rgba(41,128,185,.3)">🥇</div><div class="xp-info"><h4>Challenger</h4><span>301 – 600 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:42%;background:#2980B9"></div></div></div></div>
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(142,68,173,.12);border:1px solid rgba(142,68,173,.3)">💎</div><div class="xp-info"><h4>Competitor</h4><span>601 – 1000 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:57%;background:#8E44AD"></div></div></div></div>
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(46,134,222,.12);border:1px solid rgba(46,134,222,.3)">⚡</div><div class="xp-info"><h4>Elite</h4><span>1001 – 1500 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:71%;background:#2E86DE"></div></div></div></div>
+          <div class="xp-level reveal"><div class="xp-badge" style="background:rgba(230,126,34,.12);border:1px solid rgba(230,126,34,.3)">🔥</div><div class="xp-info"><h4>Champion</h4><span>1501 – 2000 XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:85%;background:#E67E22"></div></div></div></div>
+          <div class="xp-level active reveal"><div class="xp-badge" style="background:rgba(255,184,48,.15);border:1px solid rgba(255,184,48,.5)">⭐</div><div class="xp-info"><h4>National Prospect</h4><span>2001+ XP</span></div><div class="xp-bar-wrap"><div class="xp-bar"><div class="xp-bar-fill" style="width:100%;background:var(--gold)"></div></div></div></div>
+        </div>
+      </div>
+
+      <div class="xp-visual reveal">
+        <img src="https://images.pexels.com/photos/3621199/pexels-photo-3621199.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Athlete jumping" loading="lazy">
+        <div class="xp-visual-overlay"></div>
+        <div class="xp-visual-badge">
+          <div class="xp-visual-star">⭐</div>
+          <div class="xp-visual-text">
+            <h4>National Prospect</h4>
+            <p>Visible to scouts across India · Auto-awarded at 2001+ XP</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPORT SHOWCASE ─────────────────────────────────────────── -->
+<section class="showcase">
+  <div class="container">
+    <span class="sec-label reveal">Sports & Cities</span>
+    <h2 class="sec-title reveal">Starting With<br>Football. Then India.</h2>
+    <p class="sec-sub reveal">Phase 1 launches in Hyderabad for Football. Cricket, Kabaddi, Badminton and pan-India expansion follow in Phase 2.</p>
+  </div>
+  <div class="showcase-grid" style="max-width:1200px;margin:48px auto 0;padding:0 24px">
+    <div class="showcase-item reveal">
+      <img src="https://images.pexels.com/photos/2385477/pexels-photo-2385477.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Football dribbling" loading="lazy">
+      <div class="showcase-overlay"></div>
+      <div class="showcase-content">
+        <span class="showcase-tag">Phase 1 · Live</span>
+        <h3>Football</h3>
+        <p>Hyderabad · Android · September 2026</p>
+      </div>
+    </div>
+    <div class="showcase-item reveal">
+      <img src="https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Stadium atmosphere" loading="lazy">
+      <div class="showcase-overlay"></div>
+      <div class="showcase-content">
+        <span class="showcase-tag" style="background:rgba(255,255,255,.15);color:var(--white)">Phase 2 · Coming</span>
+        <h3>Cricket &amp; More</h3>
+        <p>Kabaddi · Badminton · Athletics · Pan-India</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── QUOTE ──────────────────────────────────────────────────── -->
+<div class="quote-sec">
+  <div class="quote-bg-text" aria-hidden="true">Rise</div>
+  <div class="quote-inner">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <blockquote class="quote-text">
+      India has 47 crore athletes.<br>
+      Only 0.16% have a digital record.<br>
+      That changes now.
+    </blockquote>
+    <p class="quote-attr">— SportRise · Discover. Train. Rise.</p>
+  </div>
+</div>
+
+<!-- ── WAITLIST ───────────────────────────────────────────────── -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="waitlist-inner">
+      <div class="waitlist-left">
+        <span class="sec-label reveal">Join the Waitlist</span>
+        <h2 class="sec-title reveal">Be First.<br>Rise Early.</h2>
+        <p class="sec-sub reveal">Sign up now and get priority access when SportRise launches in Hyderabad in September 2026.</p>
+        <div class="waitlist-features">
+          <div class="wf-item reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority access before public launch
+          </div>
+          <div class="wf-item reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Free profile during Beta period
+          </div>
+          <div class="wf-item reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Founding Athlete badge on your profile
+          </div>
+          <div class="wf-item reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Direct feedback line to the product team
+          </div>
+        </div>
+      </div>
+
+      <div class="waitlist-form reveal">
+        <h3 class="form-title">Join the Waitlist</h3>
+        <p class="form-sub">Takes 30 seconds. Free forever during Beta.</p>
+
+        <form id="waitlistForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Ravi Teja" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile (WhatsApp)</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="10-digit number" pattern="[0-9]{10}" maxlength="10" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="e.g. Hyderabad" required>
+          </div>
+          <div class="form-group">
+            <label for="sport">Primary Sport</label>
+            <select id="sport" name="sport" required>
+              <option value="" disabled selected>Select your sport</option>
+              <option value="Football">⚽ Football</option>
+              <option value="Cricket">🏏 Cricket</option>
+              <option value="Kabaddi">🤼 Kabaddi</option>
+              <option value="Badminton">🏸 Badminton</option>
+              <option value="Athletics">🏃 Athletics</option>
+              <option value="Other">🏅 Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>I am a</label>
+            <div class="role-chips">
+              <label class="role-chip checked" id="chip1"><input type="radio" name="role" value="Student" checked onchange="updateChips()"> Student</label>
+              <label class="role-chip" id="chip2"><input type="radio" name="role" value="Coach" onchange="updateChips()"> Coach</label>
+              <label class="role-chip" id="chip3"><input type="radio" name="role" value="Organizer" onchange="updateChips()"> Organizer</label>
+              <label class="role-chip" id="chip4"><input type="radio" name="role" value="Scout" onchange="updateChips()"> Scout</label>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Join the Waitlist
+          </button>
+        </form>
+
+        <div class="wl-success" id="successMsg">
+          <div style="font-size:48px;margin-bottom:12px">🚀</div>
+          <h3>You're In!</h3>
+          <p>Welcome to the SportRise waitlist. We'll reach out before launch with your priority access details.</p>
+          <p style="margin-top:12px;font-size:13px;color:var(--muted)">Share sportrise.in with your teammates 👊</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>Sport</span>Rise</div>
+        <p class="footer-tagline">India's first student athlete discovery platform. Connecting talent to opportunity — one XP at a time.</p>
+        <p style="margin-top:16px;font-size:13px;color:var(--muted)">📧 hello@sportrise.in</p>
+      </div>
+      <div class="footer-links">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#problem" onclick="event.preventDefault();document.getElementById('problem').scrollIntoView({behavior:'smooth'})">The Problem</a></li>
+          <li><a href="#solution" onclick="event.preventDefault();document.getElementById('solution').scrollIntoView({behavior:'smooth'})">How It Works</a></li>
+          <li><a href="#levels" onclick="event.preventDefault();document.getElementById('levels').scrollIntoView({behavior:'smooth'})">XP System</a></li>
+          <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Join Waitlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Who It's For</h4>
+        <ul>
+          <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Student Athletes</a></li>
+          <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Certified Coaches</a></li>
+          <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Tournament Organizers</a></li>
+          <li><a href="#waitlist" onclick="event.preventDefault();document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">National Scouts</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SportRise. All rights reserved. · sportrise.in</p>
+      <div class="footer-phase">
+        <div class="footer-dot"></div>
+        Phase 1 · Hyderabad · Football · Launching Sep 2026
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── HERO IMAGE ────────────────────────────────────────────────
+(function(){
+  const bg = document.getElementById('heroBg');
+  const img = new Image();
+  img.src = 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1600';
+  img.onload = function(){
+    bg.style.backgroundImage = "url('" + img.src + "')";
+    setTimeout(()=>bg.classList.add('loaded'), 50);
+  };
+  bg.style.backgroundImage = "url('https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1600')";
+  setTimeout(()=>bg.classList.add('loaded'), 100);
+})();
+
+// ── MOBILE NAV ────────────────────────────────────────────────
+document.getElementById('hamBtn').addEventListener('click', function(){
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js-animate');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.08, rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%5*0.06)+'s';
+    io.observe(el);
+  });
+  setTimeout(()=>{
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));
+  },1500);
+})();
+
+// ── COUNTER ───────────────────────────────────────────────────
+(function(){
+  let counted = false;
+  const el = document.getElementById('counter');
+  const target = 500;
+  const io = new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting && !counted){
+      counted=true;
+      let n=0, dur=1800, step=dur/target;
+      const t=setInterval(()=>{
+        n=Math.min(n+Math.ceil(target/(dur/16)),target);
+        el.textContent=n;
+        if(n>=target) clearInterval(t);
+      },16);
+    }
+  },{threshold:0.5});
+  if(el) io.observe(el);
+})();
+
+// ── ROLE CHIPS ───────────────────────────────────────────────
+function updateChips(){
+  ['chip1','chip2','chip3','chip4'].forEach(id=>{
+    const chip = document.getElementById(id);
+    const radio = chip.querySelector('input[type=radio]');
+    chip.classList.toggle('checked', radio.checked);
+  });
+}
+
+// ── FORM SUBMIT ───────────────────────────────────────────────
+// Supabase + Formspree dual submission
+// Supabase: primary (saves to DB for Power BI / analytics)
+// Formspree: backup (sends email to hello@sportrise.in always)
+
+const SB_URL = 'https://zmgmcnkfiwxtpweopckh.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptZ21jbmtmaXd4dHB3ZW9wY2toIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2NzQ1MzUsImV4cCI6MjA5NzI1MDUzNX0.aoqTBlJqI-d6tkMhkRZODGXdng5L3PLlLbbxbRWIVX0';
+const FS_URL = 'https://formspree.io/f/xvznnopj';
+
+document.getElementById('waitlistForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+
+  // ── Validate ──────────────────────────────────────────────
+  const name   = document.getElementById('name').value.trim();
+  const mobile = document.getElementById('mobile').value.trim();
+  const city   = document.getElementById('city').value.trim();
+  const sport  = document.getElementById('sport').value;
+  const role   = document.querySelector('input[name=role]:checked')?.value || 'Student';
+
+  if(!name || name.length < 2){
+    showFormError('Please enter your full name'); return;
+  }
+  if(!/^[6-9][0-9]{9}$/.test(mobile)){
+    showFormError('Enter a valid 10-digit Indian mobile number'); return;
+  }
+  if(!city){ showFormError('Please enter your city'); return; }
+  if(!sport){ showFormError('Please select your sport'); return; }
+
+  // ── Loading state ─────────────────────────────────────────
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" opacity=".25"/><path d="M21 12A9 9 0 0112 3"/></svg> Joining...';
+
+  const payload = { name, mobile, city, sport, role };
+  let sbOk = false, fsOk = false, sbError = '', fsError = '';
+
+  // ── 1. Supabase (save to database) ────────────────────────
+  try {
+    const res = await fetch(SB_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SB_KEY,
+        'Authorization': 'Bearer ' + SB_KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok || res.status === 201) {
+      sbOk = true;
+      console.log('✅ Supabase: signup saved to database');
+    } else {
+      const errText = await res.text();
+      sbError = res.status + ': ' + errText;
+      console.warn('⚠️ Supabase error:', sbError);
+      // Common fix: if table doesn't exist yet, log the SQL needed
+      if(res.status === 404 || errText.includes('does not exist')){
+        console.warn('👉 Run this SQL in Supabase → SQL Editor:\n' +
+          'create table waitlist (\n' +
+          '  id uuid default gen_random_uuid() primary key,\n' +
+          '  name text not null,\n' +
+          '  mobile text not null,\n' +
+          '  city text not null,\n' +
+          '  sport text not null,\n' +
+          '  role text not null,\n' +
+          '  created_at timestamptz default now()\n' +
+          ');\n' +
+          'alter table waitlist enable row level security;\n' +
+          'create policy "Allow public inserts" on waitlist for insert to anon with check (true);'
+        );
+      }
+    }
+  } catch(err) {
+    sbError = err.message;
+    console.warn('⚠️ Supabase network error:', err.message);
+  }
+
+  // ── 2. Formspree (email notification — always runs) ───────
+  try {
+    const fd = new FormData();
+    Object.entries(payload).forEach(([k,v]) => fd.append(k, v));
+    fd.append('_subject', 'New SportRise Waitlist Signup — ' + name);
+    fd.append('supabase_status', sbOk ? 'saved_to_db' : 'db_failed_' + sbError);
+    const res = await fetch(FS_URL, {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      fsOk = true;
+      console.log('✅ Formspree: email notification sent');
+    } else {
+      const errText = await res.text();
+      fsError = res.status + ': ' + errText;
+      console.warn('⚠️ Formspree error:', fsError);
+    }
+  } catch(err) {
+    fsError = err.message;
+    console.warn('⚠️ Formspree network error:', err.message);
+  }
+
+  // ── 3. Show result ────────────────────────────────────────
+  if (sbOk || fsOk) {
+    // At least one worked — show success
+    document.getElementById('waitlistForm').style.display = 'none';
+    const successEl = document.getElementById('successMsg');
+    successEl.style.display = 'block';
+
+    // Log summary for debugging
+    console.log('📊 Submission summary:',
+      '\nSupabase (DB):', sbOk ? '✅ saved' : '❌ failed — ' + sbError,
+      '\nFormspree (email):', fsOk ? '✅ sent' : '❌ failed — ' + fsError
+    );
+  } else {
+    // Both failed — show error and re-enable form
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg> Join the Waitlist';
+    showFormError('Connection error. Please check your internet and try again.');
+    console.error('❌ Both Supabase and Formspree failed.',
+      '\nSB:', sbError, '\nFS:', fsError);
+  }
+});
+
+function showFormError(msg){
+  let el = document.getElementById('formError');
+  if(!el){
+    el = document.createElement('div');
+    el.id = 'formError';
+    el.style.cssText = 'color:#FF6B6B;font-size:13px;padding:10px 14px;' +
+      'background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.3);' +
+      'border-radius:4px;margin-bottom:12px;';
+    document.getElementById('submitBtn').insertAdjacentElement('beforebegin', el);
+  }
+  el.textContent = '⚠️  ' + msg;
+  el.style.display = 'block';
+  setTimeout(()=>{ if(el) el.style.display='none'; }, 4000);
+}
+
+// ── SPIN ANIMATION ────────────────────────────────────────────
+const style = document.createElement('style');
+style.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}';
+document.head.appendChild(style);
+</script>
+</body>
+</html>
