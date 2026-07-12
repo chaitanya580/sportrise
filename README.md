@@ -101,4 +101,14 @@ Copy the entire `lib/` folder into your Flutter project created by FlutterFlow (
 - Athlete detail screen for scouts — full performance history
 - Admin verification flow — approve/reject coaches
 - Push notifications via OneSignal
-- Parental consent screen for under-18 users
+
+## Parental Consent (under-18 athletes)
+
+Student registration now inserts a "Parental Consent" step between personal
+details and sport selection whenever the entered age is under 18. It collects
+guardian name + mobile and requires an explicit consent checkbox before
+continuing. Before deploying this, run `supabase/migrations/0001_parental_consent.sql`
+in Supabase → SQL Editor — it adds the `is_minor`, `guardian_name`,
+`guardian_mobile`, `parental_consent`, and `consent_given_at` columns to
+`users`, plus a check constraint that blocks any minor row from being saved
+without `parental_consent = true`.
