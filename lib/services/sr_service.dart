@@ -73,14 +73,24 @@ class SRService {
     required int    age,
     required String city,
     required String sport,
+    String? guardianName,
+    String? guardianMobile,
+    bool    parentalConsent = false,
   }) async {
+    final bool isMinor = age < 18;
+
     // Insert user
     final userRes = await _db.from('users').insert({
-      'name':   name,
-      'mobile': mobile,
-      'age':    age,
-      'city':   city,
-      'role':   'student',
+      'name':             name,
+      'mobile':           mobile,
+      'age':              age,
+      'city':             city,
+      'role':             'student',
+      'is_minor':         isMinor,
+      'guardian_name':    isMinor ? guardianName : null,
+      'guardian_mobile':  isMinor ? guardianMobile : null,
+      'parental_consent': isMinor ? parentalConsent : true,
+      'consent_given_at': isMinor && parentalConsent ? DateTime.now().toIso8601String() : null,
     }).select().single();
 
     // Insert student profile

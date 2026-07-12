@@ -15,33 +15,64 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
   final _nameCtrl   = TextEditingController();
   final _ageCtrl    = TextEditingController();
   final _mobileCtrl = TextEditingController();
+  final _guardianNameCtrl   = TextEditingController();
+  final _guardianMobileCtrl = TextEditingController();
 
   int    _step       = 0;
   String _selectedCity  = '';
   String _selectedSport = '';
   bool   _loading    = false;
+  bool   _consentChecked = false;
 
   static const _cities = ['Hyderabad', 'Secunderabad', 'Warangal', 'Karimnagar', 'Nizamabad', 'Other'];
   static const _sports = ['Football', 'Cricket', 'Kabaddi', 'Badminton', 'Athletics', 'Volleyball', 'Other'];
 
+  bool get _isMinor {
+    final age = int.tryParse(_ageCtrl.text.trim());
+    return age != null && age < 18;
+  }
+
+  List<String> get _steps => _isMinor
+      ? ['personal', 'consent', 'sport', 'confirm']
+      : ['personal', 'sport', 'confirm'];
+
   @override
   void dispose() {
     _nameCtrl.dispose(); _ageCtrl.dispose(); _mobileCtrl.dispose();
+    _guardianNameCtrl.dispose(); _guardianMobileCtrl.dispose();
     super.dispose();
   }
 
   void _nextStep() {
-    if (_step == 0) {
+    final steps = _steps;
+    final current = steps[_step];
+
+    if (current == 'personal') {
       if (!_formKey.currentState!.validate()) return;
       if (_selectedCity.isEmpty) {
         _showSnack('Please select your city'); return;
       }
     }
-    if (_step == 1 && _selectedSport.isEmpty) {
+    if (current == 'consent') {
+      if (_guardianNameCtrl.text.trim().length < 2) {
+        _showSnack("Please enter your parent/guardian's name"); return;
+      }
+      if (!RegExp(r'^[6-9]\d{9}$').hasMatch(_guardianMobileCtrl.text.trim())) {
+        _showSnack('Enter a valid 10-digit guardian mobile number'); return;
+      }
+      if (!_consentChecked) {
+        _showSnack('Parent/guardian consent is required to continue'); return;
+      }
+    }
+    if (current == 'sport' && _selectedSport.isEmpty) {
       _showSnack('Please select your sport'); return;
     }
-    if (_step < 2) setState(() => _step++);
-    else _submit();
+
+    if (_step < steps.length - 1) {
+      setState(() => _step++);
+    } else {
+      _submit();
+    }
   }
 
   void _showSnack(String msg) {
@@ -58,6 +89,9 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
         age:    int.parse(_ageCtrl.text.trim()),
         city:   _selectedCity,
         sport:  _selectedSport,
+        guardianName:    _isMinor ? _guardianNameCtrl.text.trim() : null,
+        guardianMobile:  _isMinor ? _guardianMobileCtrl.text.trim() : null,
+        parentalConsent: _isMinor ? _consentChecked : true,
       );
       if (user != null && mounted) {
         Navigator.pushReplacementNamed(context, '/otp',
@@ -72,9 +106,12 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final steps = _steps;
+    final stepLabel = 'Step ${_step + 1} of ${steps.length}';
+
     return Scaffold(
       appBar: AppBar(
-        title: _ProgressBar(step: _step),
+        title: _ProgressBar(step: _step, total: steps.length),
         leading: _step > 0
             ? IconButton(icon: const Icon(Icons.arrow_back_ios_rounded),
                 onPressed: () => setState(() => _step--))
@@ -89,22 +126,34 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
             Expanded(
               child: AnimatedSwitcher(
                 duration: const Duration(milliseconds: 300),
-                child: _step == 0 ? _Step1(
-                    formKey: _formKey, nameCtrl: _nameCtrl,
-                    ageCtrl: _ageCtrl, mobileCtrl: _mobileCtrl,
-                    cities: _cities, selectedCity: _selectedCity,
-                    onCityChanged: (v) => setState(() => _selectedCity = v ?? ''))
-                    : _step == 1 ? _Step2(
-                        sports: _sports, selectedSport: _selectedSport,
-                        onSelect: (s) => setState(() => _selectedSport = s))
-                    : _Step3(
-                        name: _nameCtrl.text, age: _ageCtrl.text,
-                        city: _selectedCity, sport: _selectedSport,
-                        mobile: _mobileCtrl.text),
+                child: switch (steps[_step]) {
+                  'personal' => _Step1(
+                      stepLabel: stepLabel,
+                      formKey: _formKey, nameCtrl: _nameCtrl,
+                      ageCtrl: _ageCtrl, mobileCtrl: _mobileCtrl,
+                      cities: _cities, selectedCity: _selectedCity,
+                      onCityChanged: (v) => setState(() => _selectedCity = v ?? '')),
+                  'consent' => _ConsentStep(
+                      stepLabel: stepLabel,
+                      studentName: _nameCtrl.text.trim(),
+                      guardianNameCtrl: _guardianNameCtrl,
+                      guardianMobileCtrl: _guardianMobileCtrl,
+                      consentChecked: _consentChecked,
+                      onConsentChanged: (v) => setState(() => _consentChecked = v ?? false)),
+                  'sport' => _Step2(
+                      stepLabel: stepLabel,
+                      sports: _sports, selectedSport: _selectedSport,
+                      onSelect: (s) => setState(() => _selectedSport = s)),
+                  _ => _Step3(
+                      stepLabel: stepLabel,
+                      name: _nameCtrl.text, age: _ageCtrl.text,
+                      city: _selectedCity, sport: _selectedSport,
+                      mobile: _mobileCtrl.text),
+                },
               ),
             ),
             SRButton(
-              label: _step < 2 ? 'Continue →' : 'Create My Profile',
+              label: _step < steps.length - 1 ? 'Continue →' : 'Create My Profile',
               onTap: _nextStep,
               loading: _loading,
             ),
@@ -118,10 +167,11 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
 
 class _ProgressBar extends StatelessWidget {
   final int step;
-  const _ProgressBar({required this.step});
+  final int total;
+  const _ProgressBar({required this.step, required this.total});
   @override
   Widget build(BuildContext context) {
-    return Row(children: List.generate(3, (i) => Expanded(
+    return Row(children: List.generate(total, (i) => Expanded(
       child: Container(
         height: 4, margin: const EdgeInsets.symmetric(horizontal: 3),
         decoration: BoxDecoration(
@@ -133,13 +183,89 @@ class _ProgressBar extends StatelessWidget {
   }
 }
 
+class _ConsentStep extends StatelessWidget {
+  final String stepLabel;
+  final String studentName;
+  final TextEditingController guardianNameCtrl, guardianMobileCtrl;
+  final bool consentChecked;
+  final ValueChanged<bool?> onConsentChanged;
+  const _ConsentStep({
+    required this.stepLabel, required this.studentName,
+    required this.guardianNameCtrl, required this.guardianMobileCtrl,
+    required this.consentChecked, required this.onConsentChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final name = studentName.isEmpty ? 'this athlete' : studentName;
+    return ListView(children: [
+      Text('Parental Consent', style: Theme.of(context).textTheme.headlineMedium),
+      const SizedBox(height: 6),
+      Text('$stepLabel · Required for athletes under 18',
+        style: Theme.of(context).textTheme.bodyMedium),
+      const SizedBox(height: 24),
+      Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: SRColors.orange.withValues(alpha:0.1),
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: SRColors.orange.withValues(alpha:0.3)),
+        ),
+        child: Row(children: [
+          const Icon(Icons.shield_rounded, color: SRColors.orange, size: 20),
+          const SizedBox(width: 10),
+          Expanded(child: Text(
+            "Because $name is under 18, a parent or legal guardian must provide contact details and consent before this account can be created.",
+            style: GoogleFonts.inter(color: Colors.white, fontSize: 13))),
+        ]),
+      ),
+      const SizedBox(height: 24),
+      SRTextField(
+        label: "Parent/Guardian Full Name",
+        hint: 'e.g. Suresh Kumar',
+        controller: guardianNameCtrl,
+      ),
+      const SizedBox(height: 16),
+      SRTextField(
+        label: "Parent/Guardian Mobile Number",
+        hint: '10-digit mobile number',
+        controller: guardianMobileCtrl,
+        keyboardType: TextInputType.phone,
+        maxLength: 10,
+        prefix: Padding(
+          padding: const EdgeInsets.only(left: 14, right: 8),
+          child: Text('+91', style: GoogleFonts.inter(color: SRColors.muted, fontSize: 14)),
+        ),
+      ),
+      const SizedBox(height: 20),
+      GestureDetector(
+        onTap: () => onConsentChanged(!consentChecked),
+        child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Checkbox(
+            value: consentChecked,
+            onChanged: onConsentChanged,
+            activeColor: SRColors.orange,
+          ),
+          Expanded(child: Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: Text(
+              "I am the parent/legal guardian of $name and I consent to their registration on SportRise, including being contacted by verified coaches, tournament organizers, and scouts for training and competition opportunities.",
+              style: GoogleFonts.inter(color: Colors.white, fontSize: 13)),
+          )),
+        ]),
+      ),
+    ]);
+  }
+}
+
 class _Step1 extends StatelessWidget {
+  final String stepLabel;
   final GlobalKey<FormState> formKey;
   final TextEditingController nameCtrl, ageCtrl, mobileCtrl;
   final List<String> cities;
   final String selectedCity;
   final ValueChanged<String?> onCityChanged;
-  const _Step1({required this.formKey, required this.nameCtrl,
+  const _Step1({required this.stepLabel, required this.formKey, required this.nameCtrl,
     required this.ageCtrl, required this.mobileCtrl,
     required this.cities, required this.selectedCity, required this.onCityChanged});
 
@@ -150,7 +276,7 @@ class _Step1 extends StatelessWidget {
       child: ListView(children: [
         Text('Personal Details', style: Theme.of(context).textTheme.headlineMedium),
         const SizedBox(height: 6),
-        Text('Step 1 of 3', style: Theme.of(context).textTheme.bodyMedium),
+        Text(stepLabel, style: Theme.of(context).textTheme.bodyMedium),
         const SizedBox(height: 32),
         SRTextField(
           label: 'Full Name',
@@ -210,10 +336,11 @@ class _Step1 extends StatelessWidget {
 }
 
 class _Step2 extends StatelessWidget {
+  final String stepLabel;
   final List<String> sports;
   final String selectedSport;
   final ValueChanged<String> onSelect;
-  const _Step2({required this.sports, required this.selectedSport, required this.onSelect});
+  const _Step2({required this.stepLabel, required this.sports, required this.selectedSport, required this.onSelect});
 
   static const _icons = {
     'Football': '⚽', 'Cricket': '🏏', 'Kabaddi': '🤼',
@@ -225,7 +352,7 @@ class _Step2 extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text('Select Your Sport', style: Theme.of(context).textTheme.headlineMedium),
       const SizedBox(height: 6),
-      Text('Step 2 of 3 · Choose your primary sport',
+      Text('$stepLabel · Choose your primary sport',
         style: Theme.of(context).textTheme.bodyMedium),
       const SizedBox(height: 32),
       Expanded(
@@ -271,8 +398,9 @@ class _Step2 extends StatelessWidget {
 }
 
 class _Step3 extends StatelessWidget {
+  final String stepLabel;
   final String name, age, city, sport, mobile;
-  const _Step3({required this.name, required this.age,
+  const _Step3({required this.stepLabel, required this.name, required this.age,
     required this.city, required this.sport, required this.mobile});
 
   @override
@@ -280,7 +408,7 @@ class _Step3 extends StatelessWidget {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text('Confirm Your Details', style: Theme.of(context).textTheme.headlineMedium),
       const SizedBox(height: 6),
-      Text('Step 3 of 3 · Review before creating your profile',
+      Text('$stepLabel · Review before creating your profile',
         style: Theme.of(context).textTheme.bodyMedium),
       const SizedBox(height: 32),
       SRCard(
