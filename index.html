@@ -11,6 +11,14 @@
 <meta property="og:title" content="SportRise — Discover. Train. Rise.">
 <meta property="og:description" content="India's first student athlete discovery platform.">
 <meta property="og:url" content="https://sportrise.in/">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BV07G8R7MC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BV07G8R7MC');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Barlow:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -1511,6 +1519,11 @@ document.getElementById('waitlistForm').addEventListener('submit', async functio
     document.getElementById('waitlistForm').style.display = 'none';
     const successEl = document.getElementById('successMsg');
     successEl.style.display = 'block';
+
+    // GA4 conversion event
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { method: 'waitlist', sport: sport, role: role });
+    }
 
     // Log summary for debugging
     console.log('📊 Submission summary:',
