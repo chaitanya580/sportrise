@@ -98,7 +98,8 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
             arguments: {'mobile': _mobileCtrl.text.trim(), 'userId': user['id']});
       }
     } catch (e) {
-      _showSnack('Registration failed. Please try again.');
+      final detail = e.toString();
+      _showSnack('Registration failed: ${detail.length > 140 ? detail.substring(0, 140) : detail}');
     } finally {
       if (mounted) setState(() => _loading = false);
     }
