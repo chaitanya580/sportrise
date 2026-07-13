@@ -36,6 +36,18 @@
   </style>
 </head>
 <body>
+  <!-- Stub for the passkeys plugin (transitive dep of supabase_flutter 2.15+).
+       Without a PasskeyAuthenticator global, the web plugin throws during
+       registration and the whole app renders a blank screen. SportRise does
+       not use passkey login, so a no-op stub is sufficient. -->
+  <script>
+    window.PasskeyAuthenticator = window.PasskeyAuthenticator || {
+      init: function () {},
+      isSupported: function () { return Promise.resolve(false); },
+      register: function () { return Promise.reject(new Error('Passkeys not enabled')); },
+      authenticate: function () { return Promise.reject(new Error('Passkeys not enabled')); }
+    };
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
