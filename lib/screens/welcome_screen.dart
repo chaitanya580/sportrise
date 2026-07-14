@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../theme/sr_theme.dart';
+import '../services/sr_service.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -22,6 +23,16 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     _slide = Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero)
         .animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeOut));
     Future.delayed(const Duration(milliseconds: 200), _ctrl.forward);
+
+    // Already signed in (persisted Supabase session) → straight to dashboard.
+    final userId = SRService.currentUserId;
+    if (userId != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          Navigator.pushReplacementNamed(context, '/dashboard', arguments: userId);
+        }
+      });
+    }
   }
 
   @override

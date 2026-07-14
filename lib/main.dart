@@ -10,6 +10,8 @@ import 'screens/tournament_screen.dart';
 import 'screens/xp_level_screen.dart';
 import 'screens/scout_dashboard_screen.dart';
 import 'screens/profile_screen.dart';
+import 'screens/otp_screen.dart';
+import 'screens/login_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -74,7 +76,7 @@ class SportRiseApp extends StatelessWidget {
         return _slide(ProfileScreen(userId: userId(settings.arguments)));
 
       case '/login':
-        return _slide(const _LoginPlaceholder());
+        return _slide(const LoginScreen());
 
       case '/register/coach':
         return _slide(const _ComingSoonPlaceholder(title: 'Coach Registration'));
@@ -92,11 +94,10 @@ class SportRiseApp extends StatelessWidget {
         ));
 
       case '/otp':
-        // OTP screen — simple placeholder that navigates to dashboard
         final args = settings.arguments as Map<String, dynamic>?;
-        return _slide(_OTPPlaceholder(
+        return _slide(OTPScreen(
           mobile: args?['mobile'] as String? ?? '',
-          userId: args?['userId'] as String? ?? '',
+          registration: args?['registration'] as Map<String, dynamic>?,
         ));
 
       default:
@@ -120,70 +121,6 @@ class SportRiseApp extends StatelessWidget {
     ),
     transitionDuration: const Duration(milliseconds: 280),
   );
-}
-
-// ── OTP PLACEHOLDER ───────────────────────────────────────────
-class _OTPPlaceholder extends StatelessWidget {
-  final String mobile, userId;
-  const _OTPPlaceholder({required this.mobile, required this.userId});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Verify Mobile')),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Icon(Icons.sms_rounded, color: SRColors.orange, size: 64),
-          const SizedBox(height: 24),
-          Text('OTP sent to +91 $mobile',
-            style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center),
-          const SizedBox(height: 8),
-          Text('In production: use MSG91 or Twilio to send a real OTP',
-            style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
-          const SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: () => Navigator.pushReplacementNamed(
-              context, '/dashboard', arguments: userId),
-            child: const Text('Verify and Continue →'),
-          ),
-          const SizedBox(height: 12),
-          TextButton(
-            onPressed: () {},
-            child: Text('Resend OTP', style: TextStyle(color: SRColors.muted)),
-          ),
-        ]),
-      ),
-    );
-  }
-}
-
-class _LoginPlaceholder extends StatelessWidget {
-  const _LoginPlaceholder();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Sign In')),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          const Icon(Icons.login_rounded, color: SRColors.orange, size: 64),
-          const SizedBox(height: 24),
-          Text('Sign in coming soon',
-            style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center),
-          const SizedBox(height: 8),
-          Text('Use student registration to create an account for now.',
-            style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
-          const SizedBox(height: 40),
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Back to Welcome'),
-          ),
-        ]),
-      ),
-    );
-  }
 }
 
 class _ComingSoonPlaceholder extends StatelessWidget {
