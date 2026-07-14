@@ -81,6 +81,9 @@ class SportRiseApp extends StatelessWidget {
       case '/register/coach':
         return _slide(const _ComingSoonPlaceholder(title: 'Coach Registration'));
 
+      case '/register/organizer':
+        return _slide(const _ComingSoonPlaceholder(title: 'Organizer Portal'));
+
       case '/coach/profile':
         final coachArgs = settings.arguments as Map<String, dynamic>?;
         return _slide(_CoachProfilePlaceholder(

@@ -73,7 +73,7 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                             // Top bar
                             Row(children: [
                               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                Text('Good morning 👋',
+                                Text(_greeting(),
                                   style: GoogleFonts.inter(color: SRColors.muted, fontSize: 13)),
                                 Text(_user?['name'] as String? ?? 'Athlete',
                                   style: GoogleFonts.poppins(color: Colors.white,
@@ -219,6 +219,13 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
             ),
       bottomNavigationBar: _BottomNav(currentIndex: 0, userId: widget.userId),
     );
+  }
+
+  String _greeting() {
+    final hour = DateTime.now().hour;
+    if (hour < 12) return 'Good morning 👋';
+    if (hour < 17) return 'Good afternoon 👋';
+    return 'Good evening 👋';
   }
 
   String _formatSource(String s) => s

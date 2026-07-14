@@ -383,13 +383,13 @@ class _Step2 extends StatelessWidget {
                   Text(s, style: GoogleFonts.poppins(
                     color: selected ? SRColors.orange : Colors.white,
                     fontSize: 13, fontWeight: FontWeight.w600)),
-                  if (s == 'Football')
+                  if (s == 'Football' || s == 'Cricket')
                     Container(
                       margin: const EdgeInsets.only(top: 4),
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
                         color: SRColors.orange, borderRadius: BorderRadius.circular(6)),
-                      child: Text('FIRST', style: GoogleFonts.spaceGrotesk(
+                      child: Text('PHASE 1', style: GoogleFonts.spaceGrotesk(
                         color: Colors.white, fontSize: 9, fontWeight: FontWeight.w700)),
                     ),
                 ]),
