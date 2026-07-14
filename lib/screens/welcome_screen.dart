@@ -114,7 +114,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         title: 'Organizer',
                         subtitle: 'Post tournaments',
                         color: const Color(0xFF2E86DE),
-                        onTap: () {},
+                        onTap: () => Navigator.pushNamed(context, '/register/organizer'),
                         small: true,
                       ),
                     ),

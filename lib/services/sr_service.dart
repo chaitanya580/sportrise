@@ -228,27 +228,13 @@ class SRService {
       'source_id':   sourceId,
     });
 
-    // 2. Get current XP
-    final profile = await _db
-        .from('student_profiles')
-        .select('xp_total')
-        .eq('user_id', studentId)
-        .single();
-
-    final int currentXP = profile['xp_total'] as int;
-    final int newXP     = currentXP + xpAmount;
-
-    // 3. Calculate new level
-    final levelData = LevelSystem.fromXP(newXP);
-    final bool isNP = (levelData['level'] as int) >= 7;
-
-    // 4. Update student profile
-    await _db.from('student_profiles').update({
-      'xp_total':              newXP,
-      'level':                 levelData['level'],
-      'level_name':            levelData['name'],
-      'is_national_prospect':  isNP,
-    }).eq('user_id', studentId);
+    // 2. Atomic increment + level recalculation in the database
+    //    (see supabase/migrations/0003_xp_integrity.sql). Doing the
+    //    read-modify-write client-side loses XP under concurrent awards.
+    await _db.rpc('increment_xp', params: {
+      'p_student_id': studentId,
+      'p_delta':      xpAmount,
+    });
   }
 
   // ── XP HISTORY ────────────────────────────────────────────────
@@ -291,11 +277,15 @@ class SRService {
     String? city,
     int?    minLevel,
   }) async {
+    // sport lives on student_profiles; name/city/age come from users.
+    // (users has no sport column — selecting it here broke the whole query.)
     var query = _db
         .from('student_profiles')
-        .select('*, user:user_id(name, city, age, sport)')
+        .select('*, user:user_id!inner(name, city, age)')
         .eq('profile_complete', true);
 
+    if (sport    != null) query = query.eq('sport', sport);
+    if (city     != null) query = query.eq('user.city', city);
     if (minLevel != null) query = query.gte('level', minLevel);
 
     final res = await query.order('xp_total', ascending: false);

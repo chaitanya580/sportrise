@@ -16,6 +16,14 @@ class _CoachDiscoveryScreenState extends State<CoachDiscoveryScreen> {
   String _filterCity  = '';
   double _filterRating = 0;
   int    _filterFee   = 10000;
+  String _search = '';
+
+  List<Map<String, dynamic>> get _visibleCoaches => _search.isEmpty
+      ? _coaches
+      : _coaches.where((c) {
+          final name = (c['users']?['name'] as String?) ?? '';
+          return name.toLowerCase().contains(_search.toLowerCase());
+        }).toList();
 
   @override
   void initState() { super.initState(); _load(); }
@@ -68,6 +76,7 @@ class _CoachDiscoveryScreenState extends State<CoachDiscoveryScreen> {
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
           child: TextField(
             style: GoogleFonts.inter(color: Colors.white),
+            onChanged: (v) => setState(() => _search = v.trim()),
             decoration: InputDecoration(
               hintText: 'Search coaches by name…',
               prefixIcon: const Icon(Icons.search_rounded, color: SRColors.muted),
@@ -102,7 +111,7 @@ class _CoachDiscoveryScreenState extends State<CoachDiscoveryScreen> {
         Expanded(
           child: _loading
               ? const Center(child: CircularProgressIndicator(color: SRColors.orange))
-              : _coaches.isEmpty
+              : _visibleCoaches.isEmpty
                   ? const SREmptyState(
                       icon: Icons.search_off_rounded,
                       title: 'No coaches found',
@@ -110,9 +119,9 @@ class _CoachDiscoveryScreenState extends State<CoachDiscoveryScreen> {
                     )
                   : ListView.separated(
                       padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-                      itemCount: _coaches.length,
+                      itemCount: _visibleCoaches.length,
                       separatorBuilder: (_, __) => const SizedBox(height: 12),
-                      itemBuilder: (_, i) => _CoachCard(coach: _coaches[i]),
+                      itemBuilder: (_, i) => _CoachCard(coach: _visibleCoaches[i]),
                     ),
         ),
       ]),
