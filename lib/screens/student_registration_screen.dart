@@ -83,23 +83,27 @@ class _StudentRegistrationScreenState extends State<StudentRegistrationScreen> {
   Future<void> _submit() async {
     setState(() => _loading = true);
     try {
-      final user = await SRService.registerStudent(
-        name:   _nameCtrl.text.trim(),
-        mobile: _mobileCtrl.text.trim(),
-        age:    int.parse(_ageCtrl.text.trim()),
-        city:   _selectedCity,
-        sport:  _selectedSport,
-        guardianName:    _isMinor ? _guardianNameCtrl.text.trim() : null,
-        guardianMobile:  _isMinor ? _guardianMobileCtrl.text.trim() : null,
-        parentalConsent: _isMinor ? _consentChecked : true,
-      );
-      if (user != null && mounted) {
-        Navigator.pushReplacementNamed(context, '/otp',
-            arguments: {'mobile': _mobileCtrl.text.trim(), 'userId': user['id']});
+      final mobile = _mobileCtrl.text.trim();
+      // Send a real OTP first; the account is only created after the
+      // number is verified (see OTPScreen -> SRService.completeRegistration).
+      await SRService.sendOtp(mobile);
+      if (mounted) {
+        Navigator.pushNamed(context, '/otp', arguments: {
+          'mobile': mobile,
+          'registration': {
+            'name':  _nameCtrl.text.trim(),
+            'age':   int.parse(_ageCtrl.text.trim()),
+            'city':  _selectedCity,
+            'sport': _selectedSport,
+            'guardianName':    _isMinor ? _guardianNameCtrl.text.trim() : null,
+            'guardianMobile':  _isMinor ? _guardianMobileCtrl.text.trim() : null,
+            'parentalConsent': _isMinor ? _consentChecked : true,
+          },
+        });
       }
     } catch (e) {
       final detail = e.toString();
-      _showSnack('Registration failed: ${detail.length > 140 ? detail.substring(0, 140) : detail}');
+      _showSnack('Could not send OTP: ${detail.length > 140 ? detail.substring(0, 140) : detail}');
     } finally {
       if (mounted) setState(() => _loading = false);
     }

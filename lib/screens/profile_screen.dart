@@ -160,7 +160,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   label: 'Sign Out',
                   outlined: true,
                   color: SRColors.error,
-                  onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false),
+                  onTap: () async {
+                    await SRService.signOut();
+                    if (context.mounted) {
+                      Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+                    }
+                  },
                 ),
 
                 const SizedBox(height: 32),

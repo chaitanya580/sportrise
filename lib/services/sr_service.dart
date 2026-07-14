@@ -66,8 +66,34 @@ class LevelSystem {
 class SRService {
   static SupabaseClient get _db => Supabase.instance.client;
 
-  // ── AUTH ──────────────────────────────────────────────────────
-  static Future<Map<String, dynamic>?> registerStudent({
+  // ── AUTH (Supabase phone OTP) ─────────────────────────────────
+  static Future<void> sendOtp(String mobile) async {
+    await _db.auth.signInWithOtp(phone: '+91$mobile');
+  }
+
+  static Future<String> verifyOtp({
+    required String mobile,
+    required String token,
+  }) async {
+    final res = await _db.auth.verifyOTP(
+      type:  OtpType.sms,
+      phone: '+91$mobile',
+      token: token,
+    );
+    final user = res.user;
+    if (user == null) throw Exception('OTP verification failed');
+    return user.id;
+  }
+
+  static String? get currentUserId => _db.auth.currentUser?.id;
+
+  static Future<void> signOut() => _db.auth.signOut();
+
+  // Called after OTP verification: creates the user + student profile
+  // keyed to the authenticated Supabase user id, so owner-scoped RLS
+  // policies (id = auth.uid()) apply to every later write.
+  static Future<Map<String, dynamic>?> completeRegistration({
+    required String userId,
     required String name,
     required String mobile,
     required int    age,
@@ -77,10 +103,14 @@ class SRService {
     String? guardianMobile,
     bool    parentalConsent = false,
   }) async {
+    // Re-verifying an existing account: nothing to create.
+    final existing = await getUserById(userId);
+    if (existing != null) return existing;
+
     final bool isMinor = age < 18;
 
-    // Insert user
     final userRes = await _db.from('users').insert({
+      'id':               userId,
       'name':             name,
       'mobile':           mobile,
       'age':              age,
@@ -93,9 +123,8 @@ class SRService {
       'consent_given_at': isMinor && parentalConsent ? DateTime.now().toIso8601String() : null,
     }).select().single();
 
-    // Insert student profile
     await _db.from('student_profiles').insert({
-      'user_id':    userRes['id'],
+      'user_id':    userId,
       'sport':      sport,
       'xp_total':   0,
       'level':      1,
