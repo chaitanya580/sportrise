@@ -6,7 +6,9 @@
 do $$ begin
   alter table tournament_registrations
     add constraint uq_tournament_student unique (tournament_id, student_id);
-exception when duplicate_object then null;
+exception
+  when duplicate_object then null;  -- constraint exists
+  when duplicate_table  then null;  -- backing index exists (42P07)
 end $$;
 
 -- 2. Atomic XP increment + level recalculation. The previous client-side
