@@ -12,6 +12,8 @@ import 'screens/scout_dashboard_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/otp_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/coach_detail_screen.dart';
+import 'screens/athlete_detail_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,15 +88,11 @@ class SportRiseApp extends StatelessWidget {
 
       case '/coach/profile':
         final coachArgs = settings.arguments as Map<String, dynamic>?;
-        return _slide(_CoachProfilePlaceholder(
-          name: coachArgs?['name'] as String? ?? 'Coach',
-        ));
+        return _slide(CoachDetailScreen(coach: coachArgs ?? const {}));
 
       case '/athlete/profile':
         final athleteArgs = settings.arguments as Map<String, dynamic>?;
-        return _slide(_AthleteProfilePlaceholder(
-          name: athleteArgs?['name'] as String? ?? 'Athlete',
-        ));
+        return _slide(AthleteDetailScreen(athlete: athleteArgs ?? const {}));
 
       case '/otp':
         final args = settings.arguments as Map<String, dynamic>?;
@@ -157,68 +155,3 @@ class _ComingSoonPlaceholder extends StatelessWidget {
   }
 }
 
-class _CoachProfilePlaceholder extends StatelessWidget {
-  final String name;
-  const _CoachProfilePlaceholder({required this.name});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Coach Profile')),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundColor: SRColors.gold.withValues(alpha:0.15),
-            child: Text(name[0].toUpperCase(),
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: SRColors.gold)),
-          ),
-          const SizedBox(height: 20),
-          Text(name, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 8),
-          Text('Coach profile details coming soon.',
-            style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
-          const SizedBox(height: 32),
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Go Back'),
-          ),
-        ]),
-      ),
-    );
-  }
-}
-
-class _AthleteProfilePlaceholder extends StatelessWidget {
-  final String name;
-  const _AthleteProfilePlaceholder({required this.name});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Athlete Profile')),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          CircleAvatar(
-            radius: 40,
-            backgroundColor: SRColors.orange.withValues(alpha:0.15),
-            child: Text(name[0].toUpperCase(),
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: SRColors.orange)),
-          ),
-          const SizedBox(height: 20),
-          Text(name, style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 8),
-          Text('Athlete profile details coming soon.',
-            style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
-          const SizedBox(height: 32),
-          ElevatedButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Go Back'),
-          ),
-        ]),
-      ),
-    );
-  }
-}
